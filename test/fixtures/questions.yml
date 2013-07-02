@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyText
+  enabled: false
+  deleted: false
+  order: 1
+  date: 2013-06-11 11:49:12
+
+two:
+  title: MyText
+  enabled: false
+  deleted: false
+  order: 1
+  date: 2013-06-11 11:49:12

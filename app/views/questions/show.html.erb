@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Текст вопроса:</b>
+  <%= @question.title %>
+</p>
+
+<p>
+  <b>Используется в анкете:</b>
+  <%= @question.enabled %>
+</p>
+
+<p>
+  <b>Вопрос удален:</b>
+  <%= @question.deleted %>
+</p>
+
+<p>
+  <b>Порядковый номер:</b>
+  <%= @question.order %>
+</p>
+
+<p>
+  <b>Дата создания:</b>
+  <%= @question.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
