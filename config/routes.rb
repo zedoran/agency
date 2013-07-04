@@ -2,13 +2,16 @@ Agency::Application.routes.draw do
 
 
   get "users/new"
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   get 'questionnaire' => 'questionnaire#index'
 
   # то же самое   match '/editor' => 'full_question#editor'
   # и то же самое get 'editor' => 'full_question#editor'
   match '/editor', to: 'full_question#editor'
-  match '/signup', to: 'users#new'
 
   get 'home/index'
 
