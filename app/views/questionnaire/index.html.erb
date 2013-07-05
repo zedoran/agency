@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 <% provide(:title, "Start page") %>
-<h1>Вопросница</h1>
+<h3>Вопросница</h3>
 <table class="questionnaire" >
   <% @questions.each do |question| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even')  %>">

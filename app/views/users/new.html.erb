@@ -17,7 +17,8 @@
         <%= f.label :password_confirmation, "Confirmation" %>
         <%= f.password_field :password_confirmation %>
 
-        <%= f.submit "Вход/регистрация", class: "btn btn-large btn-primary" %>
+        <%= f.submit "Регистрация", class: "btn btn-large btn-primary" %>
     <% end %>
+    <p style="text-align: center"><%= link_to "Вход", signin_path %> для зарегистрированных пользователей</p>
   </div>
 </div>

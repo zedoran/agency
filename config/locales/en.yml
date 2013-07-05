@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  prev: "Previous"
+  next: "Next"
+  signin_error: "Bad email/password"
