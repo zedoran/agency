@@ -51,7 +51,7 @@ class AnswersController < ApplicationController
 
       respond_to do |format|
         if @answer.save
-          format.html { redirect_to question, notice: 'Good.' }
+          format.html { redirect_to questionnaire_path, notice: 'Good.' }
         else
         format.html { render action: "new" }
       end

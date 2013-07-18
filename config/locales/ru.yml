@@ -7,8 +7,33 @@ ru:
   nextt: "Следующая &#8594;"
   signin_error: "Несовпадение введенных учетных данных пользователя"
   arrow: "&#8594;"
+  arrow_up: "&#8593;"
 #START:will_panigate
   will_panigate:
     previous_label: "&#8592; Предыдущая"
     next_label: "Следующая &#8594;"
 #END:will_panigate
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    month_names: [~, январь, февраль, март, апрель, май, июнь, июль, август, сентябь, октябрь, ноябрь, декабрь]
+    abbr_month_names: [~, янв, фев, мар, апр, май, июнь, июль, авг, сен, окт, ноя, дек]
+
+    order:
+      - :day
+      - :month
+      - :year
+
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"

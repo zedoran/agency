@@ -3,26 +3,20 @@
 <% end %>
 <% provide(:title, "Start page") %>
 <h3>Вопросница</h3>
-<table class="questionnaire" >
+<table class="table table-bordered table-hover table-condensed table-striped" >
   <% @questions.each do |question| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even')  %>">
     <td id="column1">
-        <h5>Вопрос № <%= question.order %></h5> <h2><%= question.title %></h2>
+      <span class="badge badge-info">Вопрос № <%= question.order %></span>
+      <p><%= question.title %></p>
     </td>
     <td id="column2">
-      <table class="answers_table">
+      <table class="table table-bordered table-hover table-condensed table-striped">
         <% question.answers.each do |answer| %>
         <tr>
           <td>
-            <div class="btn-group">
-              <a class="btn btn-mini btn-primary" href="#"><i class="icon-eye-open icon-white"></i> Ответ №<%= answer.ordering %></a>
-              <a class="btn btn-mini btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href=<%= editor_path(question_id: question)%>><i class="icon-pencil"></i> Редактировать</a></li>
-                <li><a href="#"><i class="icon-home"></i> Удалить</a></li>
-              </ul>
-            </div>
-            <p><%= answer.title %></p>
+            <%= render answer %>
+            <!--     <li><a href=<%= editor_path(question_id: question)%><i class="icon-pencil"></i> Редактировать</a></li>   -->
           </td>
         </tr>
         <% end %>
@@ -33,7 +27,10 @@
     </td>
     <td>
 <!--     <a class="btn btn-mini btn-primary" href=<%= new_answer_path(question_id: question)%>><i class="icon-edit"></i></a> -->
-      <a class="btn btn-mini btn-primary" href=<%= editor_path(question_id: question)%>><i class="icon-edit icon-white"></i></a>
+<!--     <a class="btn btn-mini btn-primary" href=<%= editor_path(question_id: question)%>><i class="icon-edit icon-white"></i></a> -->
+      <% if current_user.admin %>
+        <a class="btn btn-primary btn-mini" href=<%= editor_path(question_id: question)%>><i class="icon-edit icon-white"></i></a>
+      <% end %>
     </td>
   </tr>
   <% end %>

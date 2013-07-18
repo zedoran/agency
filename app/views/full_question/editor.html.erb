@@ -1,13 +1,31 @@
-<h1>Редактирование вопроса с ответами</h1>
-<table class="table-bordered table-hover table-condensed table-striped">
-  <% @question.answers.each do |answer| %>
-      <tr>
-        <td>
-          <h3><%= answer.ordering %></h3>
-        </td>
-        <td>
-          <p><%= answer.title  %></p>
-        </td>
-      </tr>
-  <% end %>
-</table>
+<h3>Редактирование вопроса с ответами</h3>
+<!-- <table class="table-bordered table-hover table-condensed table-striped"> -->
+
+<h4><%= @question.title %></h4>
+  <table class="table-bordered table-hover table-condensed table-striped">
+    <% @question.answers.each do |answer| %>
+        <tr>
+          <td>
+            <%= render answer %>
+          </td>
+          <td>
+            <% if current_user.admin? %>
+                <div class="btn-group">
+                  <a class="btn btn-mini btn-primary" href="#"><i class="icon-eye-open icon-white"></i> Ответ №<%= answer.ordering %></a>
+                  <a class="btn btn-mini btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><i class="icon-home"></i> Удалить</a></li>
+                  </ul>
+                </div>
+            <% end %>
+
+          </td>
+        </tr>
+    <% end %>
+    <tr>
+      <% if current_user.admin %>
+          <a class="btn btn-mini btn-primary" href=<%= new_answer_path(question_id: @question)%>><i class="icon-edit icon-white"></i></a>
+      <% end %>
+    </tr>
+  </table>
+
