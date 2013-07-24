@@ -8,11 +8,11 @@ ru:
   signin_error: "Несовпадение введенных учетных данных пользователя"
   arrow: "&#8594;"
   arrow_up: "&#8593;"
-#START:will_panigate
+#START:will_paginate
   will_panigate:
     previous_label: "&#8592; Предыдущая"
     next_label: "Следующая &#8594;"
-#END:will_panigate
+#END:will_paginate
   date:
     formats:
       default: "%d-%m-%Y"
