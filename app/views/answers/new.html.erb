@@ -1,5 +1,5 @@
-<h1>New answer</h1>
+<h1>Добавление нового ответа</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', answers_path %>
+<%= link_to t("back"), editor_path(question_id: @answer.question_id) %>

@@ -1,6 +1,8 @@
 class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
+  before_filter :signed_in_user, only: [:index]
+  before_filter :admin_user,     only: [:new, :edit, :create, :update, :destroy]
   def index
     @answers = Answer.all
 
@@ -51,7 +53,8 @@ class AnswersController < ApplicationController
 
       respond_to do |format|
         if @answer.save
-          format.html { redirect_to questionnaire_path, notice: 'Good.' }
+          flash[:success] = t("success")
+          format.html { redirect_to editor_path(question_id: question) }
         else
         format.html { render action: "new" }
       end
@@ -91,7 +94,8 @@ class AnswersController < ApplicationController
     @answer.destroy
 
     respond_to do |format|
-      format.html { redirect_to answers_url }
+#      format.html { redirect_to answers_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
+  before_filter :signed_in_user, only: [:index]
+  before_filter :admin_user,     only: [:new, :edit, :create, :update, :destroy]
   def index
     @questions = Question.all
 

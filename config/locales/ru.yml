@@ -8,6 +8,9 @@ ru:
   signin_error: "Несовпадение введенных учетных данных пользователя"
   arrow: "&#8594;"
   arrow_up: "&#8593;"
+  back: "Вернуться"
+  success: "Успешно!"
+  sign_in_please: "Пожалуйста, войдите или зарегистрируйтесь, если вы новый пользователь"
 #START:will_paginate
   will_panigate:
     previous_label: "&#8592; Предыдущая"

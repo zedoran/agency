@@ -6,3 +6,4 @@ en:
   prev: "Previous"
   next: "Next"
   signin_error: "Bad email/password"
+  sign_in_please: "Sign in please!"

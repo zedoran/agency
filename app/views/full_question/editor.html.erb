@@ -1,7 +1,7 @@
 <h3>Редактирование вопроса с ответами</h3>
 <!-- <table class="table-bordered table-hover table-condensed table-striped"> -->
-
-<h4><%= @question.title %></h4>
+<form class="form-horizontal well">
+<legend><%= @question.title %></legend>
   <table class="table-bordered table-hover table-condensed table-striped">
     <% @question.answers.each do |answer| %>
         <tr>
@@ -14,7 +14,13 @@
                   <a class="btn btn-mini btn-primary" href="#"><i class="icon-eye-open icon-white"></i> Ответ №<%= answer.ordering %></a>
                   <a class="btn btn-mini btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-home"></i> Удалить</a></li>
+                    <!--  %= link_to "Delete", answer, method: :delete, data: { confirm: "Sure?" } do %> -->
+                    <li>
+                      <%= link_to answer, method: :delete, data: { confirm: "Уверены, что хотите удалить?" } do %>
+                          <i class="icon-trash"></i> Удалить
+                      <% end %>
+                    </li>
+                    <li><a href="#"><i class="icon-refresh"></i> Редактировать</a></li>
                   </ul>
                 </div>
             <% end %>
@@ -22,10 +28,13 @@
           </td>
         </tr>
     <% end %>
-    <tr>
-      <% if current_user.admin %>
-          <a class="btn btn-mini btn-primary" href=<%= new_answer_path(question_id: @question)%>><i class="icon-edit icon-white"></i></a>
-      <% end %>
-    </tr>
   </table>
+  <% if current_user.admin %>
+      <br>
+        <a class="btn btn-mini btn-primary" href=<%= new_answer_path(question_id: @question)%>><i class="icon-edit icon-white"></i> Добавить вариант ответа</a>
+        <br>
+        <br>
+      <code>&#10531;</code><a href=<%= questionnaire_path%>> Назад к списку вопросов</a>
 
+  <% end %>
+</form>

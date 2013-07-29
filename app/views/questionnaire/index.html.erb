@@ -3,11 +3,18 @@
 <% end %>
 <% provide(:title, "Start page") %>
 <h3>Вопросница</h3>
+
+<%= will_paginate @collection, :previous_label => t("will_panigate.previous_label"), :next_label => t("will_panigate.next_label") %>
+
+
+<form class="form-horizontal well">
+
+
 <table class="table table-bordered table-hover table-condensed table-striped" >
-  <% @questions.each do |question| %>
+  <% @questionnaire.each do |question| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even')  %>">
     <td id="column1">
-      <span class="badge badge-info">Вопрос № <%= question.order %></span>
+      <span class="label label-info">Вопрос № <%= question.order %></span>
       <p><%= question.title %></p>
     </td>
     <td id="column2">
@@ -35,3 +42,4 @@
   </tr>
   <% end %>
 </table>
+</form>

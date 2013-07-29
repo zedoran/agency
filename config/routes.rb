@@ -16,10 +16,10 @@ Agency::Application.routes.draw do
   get 'home/index'
 
 
-  resources :answers
+  resources :answers, only:[:new, :create, :destroy]
 
 
-  resources :questions
+  resources :questions, only:[:new, :create, :destroy]
 
   resources :users
 
